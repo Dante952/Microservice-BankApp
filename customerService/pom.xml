@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nttdata</groupId>
-	<artifactId>customerService</artifactId>
+	<artifactId>customerservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>customerService</name>
 	<description>Microservice in charge of managing bank clients, such as business and personal</description>

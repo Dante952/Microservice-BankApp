@@ -10,7 +10,7 @@ spring:
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
-          default-label: "master"
+          default-label: "main"
   security:
     user:
       name: root

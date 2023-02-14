@@ -17,7 +17,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
     @GetMapping
-    public ResponseEntity<List<Customer>> listCustomer(@RequestParam(name = "categoryId", required = false) Long customerTypeId){
+    public ResponseEntity<List<Customer>> listCustomer(@RequestParam(name = "customerId", required = false) Long customerTypeId){
         List<Customer> customers;
         if(Optional.ofNullable(customerTypeId).isEmpty()){
             customers = customerService.listAllCustomer();
@@ -37,6 +37,25 @@ public class CustomerController {
     @GetMapping(value = "/{document}")
     public ResponseEntity<Customer> getCustomer(@PathVariable("document") Long document) {
         Customer customer =  customerService.findByDocument(document);
+        if (null==customer){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(customer);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Customer> updateCustomer(@PathVariable("id") Long id,@RequestBody Customer customer) {
+        customer.setId(id);
+        Customer customerUpdate =  customerService.updateCustomer(customer);
+        if (null==customer){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(customerUpdate);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Customer> deleteProduct(@PathVariable("id") Long id){
+        Customer customer =  customerService.deleteCustomer(id);
         if (null==customer){
             return ResponseEntity.notFound().build();
         }

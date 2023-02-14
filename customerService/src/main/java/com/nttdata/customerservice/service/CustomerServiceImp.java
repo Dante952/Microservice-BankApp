@@ -103,4 +103,15 @@ public class CustomerServiceImp implements CustomerService {
   public List<Customer> findByCustomerType(CustomerType customerType) {
     return customerRepository.findByCustomerType(customerType);
   }
+
+  /**
+   * * Ignore try block, but keep catch and finally blocks.
+   *
+   * @param document
+   * @return
+   */
+  @Override
+  public Customer findByDocument(long document) {
+    return customerRepository.findByDocument(document);
+  }
 }

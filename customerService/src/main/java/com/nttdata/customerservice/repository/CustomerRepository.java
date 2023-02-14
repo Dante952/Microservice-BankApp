@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
   public List<Customer> findByCustomerType(CustomerType customerType);
+  public Customer findByDocument(long document);
 
 
 

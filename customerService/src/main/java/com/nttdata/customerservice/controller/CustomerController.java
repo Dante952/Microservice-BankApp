@@ -28,10 +28,19 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Customer> createProduct( @RequestBody Customer customer){
+    public ResponseEntity<Customer> createCustomer( @RequestBody Customer customer){
 
         Customer customerCreate =  customerService.createCustomer(customer);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerCreate);
+    }
+
+    @GetMapping(value = "/{document}")
+    public ResponseEntity<Customer> getCustomer(@PathVariable("document") Long document) {
+        Customer customer =  customerService.findByDocument(document);
+        if (null==customer){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(customer);
     }
 
 }

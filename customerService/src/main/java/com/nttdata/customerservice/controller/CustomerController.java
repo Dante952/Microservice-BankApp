@@ -28,9 +28,9 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Customer> createProduct( @RequestBody Customer product){
+    public ResponseEntity<Customer> createProduct( @RequestBody Customer customer){
 
-        Customer customerCreate =  customerService.createCustomer(product);
+        Customer customerCreate =  customerService.createCustomer(customer);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerCreate);
     }
 

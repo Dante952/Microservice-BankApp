@@ -1,6 +1,5 @@
 server:
   port: 8099
-
 eureka:
   instance:
     hostname: localhost
@@ -12,3 +11,4 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 0
+    enableSelfPreservation: false

@@ -3,11 +3,11 @@ package com.nttdata.customerservice.service;
 import com.nttdata.customerservice.entity.Customer;
 import com.nttdata.customerservice.entity.CustomerType;
 import com.nttdata.customerservice.repository.CustomerRepository;
+import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
 
 /**
  * .
@@ -52,17 +52,17 @@ public class CustomerServiceImp implements CustomerService {
    */
   @Override
   public Customer updateCustomer(Customer customer) {
-    Customer customerDB = getCustomer(customer.getId());
-    if(Optional.ofNullable(customerDB).isEmpty()){
+    Customer customerDb = getCustomer(customer.getId());
+    if (Optional.ofNullable(customerDb).isEmpty()) {
       return null;
     }
-    customerDB.setName(customer.getName());
-    customerDB.setDocument(customer.getDocument());
-    customerDB.setDocumentType(customer.getDocumentType());
-    customerDB.setPhoneNumber(customer.getPhoneNumber());
-    customerDB.setCustomerType(customer.getCustomerType());
-    customerDB.setStatus(customer.getStatus());
-    return customerRepository.save(customerDB);
+    customerDb.setName(customer.getName());
+    customerDb.setDocument(customer.getDocument());
+    customerDb.setDocumentType(customer.getDocumentType());
+    customerDb.setPhoneNumber(customer.getPhoneNumber());
+    customerDb.setCustomerType(customer.getCustomerType());
+    customerDb.setStatus(customer.getStatus());
+    return customerRepository.save(customerDb);
 
   }
 
@@ -73,12 +73,12 @@ public class CustomerServiceImp implements CustomerService {
    */
   @Override
   public Customer deleteCustomer(long id) {
-    Customer customerDB = getCustomer(id);
-    if(Optional.ofNullable(customerDB).isEmpty()){
+    Customer customerDb = getCustomer(id);
+    if (Optional.ofNullable(customerDb).isEmpty()) {
       return null;
     }
-    customerDB.setStatus("DELETE");
-    return customerRepository.save(customerDB);
+    customerDb.setStatus("DELETE");
+    return customerRepository.save(customerDb);
 
   }
 
@@ -107,8 +107,8 @@ public class CustomerServiceImp implements CustomerService {
   /**
    * * Ignore try block, but keep catch and finally blocks.
    *
-   * @param document
-   * @return
+   * @param document asdas
+   * @return Customer sadasd
    */
   @Override
   public Customer findByDocument(long document) {

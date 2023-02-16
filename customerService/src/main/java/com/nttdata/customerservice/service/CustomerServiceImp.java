@@ -111,7 +111,7 @@ public class CustomerServiceImp implements CustomerService {
    * @return Customer sadasd
    */
   @Override
-  public Customer findByDocument(long document) {
+  public Customer findByDocument(String document) {
     return customerRepository.findByDocument(document);
   }
 }

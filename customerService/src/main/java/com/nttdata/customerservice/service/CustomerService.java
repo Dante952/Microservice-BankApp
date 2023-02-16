@@ -22,7 +22,7 @@ public interface CustomerService {
 
   public List<Customer> findByCustomerType(CustomerType customerType);
 
-  public Customer findByDocument(long document);
+  public Customer findByDocument(String document);
 
 
 }

@@ -117,7 +117,7 @@ public class CustomerController {
    * @return CustomerList asdasdsa
    */
   @GetMapping(value = "/{document}")
-  public ResponseEntity<Customer> getCustomer(@PathVariable("document") Long document) {
+  public ResponseEntity<Customer> getCustomer(@PathVariable("document") String document) {
     Customer customer =  customerService.findByDocument(document);
     if (Optional.ofNullable(customer).isEmpty()) {
       return ResponseEntity.notFound().build();

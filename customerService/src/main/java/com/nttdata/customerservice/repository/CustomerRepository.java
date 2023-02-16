@@ -27,7 +27,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
    * @param document asd
    * @return Customer sadas
    */
-  public Customer findByDocument(long document);
+  public Customer findByDocument(String document);
 
 
 

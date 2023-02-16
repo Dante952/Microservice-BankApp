@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS tbl_customertype (
 
 delete FROM tbl_customertype WHERE id >= '1';
 
-INSERT INTO tbl_customertype (id, name, description) VALUES ( 1,'personal', 'DESCRIPCION DE cuenta Personal' );
-INSERT INTO tbl_customertype (id, name, description) VALUES ( 2,'business', 'DESCRIPCION DE cuenta empresairla' );
+INSERT INTO tbl_customertype (id, name, description) VALUES ( 1,'PERSONAL', 'Personal account belonging to a person identified by their ID or passport' );
+INSERT INTO tbl_customertype (id, name, description) VALUES ( 2,'BUSINESS', 'Personal account that belongs to a company identified by its RUC' );
 
 select * FROM tbl_customertype;
 

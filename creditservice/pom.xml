@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nttdata</groupId>
-	<artifactId>customerservice</artifactId>
+	<artifactId>creditservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customerService</name>
-	<description>Microservice in charge of managing bank clients, such as business and personal</description>
+	<name>creditservice</name>
+	<description>Microservice that manages the credits that are requested as business credit, personal credit and credit card</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
@@ -34,7 +34,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -104,4 +104,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

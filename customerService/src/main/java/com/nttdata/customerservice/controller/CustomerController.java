@@ -125,6 +125,8 @@ public class CustomerController {
     return ResponseEntity.ok(customer);
   }
 
+
+
   /**
    * * Ignore try block, but keep catch and finally blocks.
    *
@@ -154,11 +156,12 @@ public class CustomerController {
    * @return CustomerList asdasdsa
    */
   @DeleteMapping(value = "/{id}")
-  public ResponseEntity<Customer> deleteProduct(@PathVariable("id") Long id) {
+  public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") Long id) {
     Customer customer =  customerService.deleteCustomer(id);
     if (Optional.ofNullable(customer).isEmpty()) {
       return ResponseEntity.notFound().build();
     }
     return ResponseEntity.ok(customer);
   }
+
 }

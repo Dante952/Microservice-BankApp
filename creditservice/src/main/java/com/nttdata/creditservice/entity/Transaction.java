@@ -28,12 +28,13 @@ public class Transaction {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "credit_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private CreditType creditType;
+    private CreditType credit;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "transactionType_id")
+    @JoinColumn(name = "transactiontype_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private TransactionType transactionType;
-
+    @NotEmpty(message = "the status must not be empty")
+    private String status;
     @NotEmpty(message = "the amount must not be empty")
     private String aumont;
 

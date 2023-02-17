@@ -31,7 +31,7 @@ select * FROM tbl_customertype;
 
 CREATE TABLE IF NOT EXISTS tbl_customer (
                                                  id LONG NOT NULL,
-                                                 document LONG,
+                                                 document VARCHAR2,
                                                  documenttype_id LONG NOT NULL,
                                                  name VARCHAR2,
                                                  status VARCHAR2,

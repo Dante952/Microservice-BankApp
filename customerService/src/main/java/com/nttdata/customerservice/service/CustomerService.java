@@ -11,18 +11,10 @@ import java.util.List;
 
 public interface CustomerService {
   public Customer getCustomer(Long id);
-
   public Customer createCustomer(Customer customer);
-
   public Customer updateCustomer(Customer customer);
-
   public Customer deleteCustomer(long id);
-
   public List<Customer> listAllCustomer();
-
   public List<Customer> findByCustomerType(CustomerType customerType);
-
   public Customer findByDocument(String document);
-
-
 }

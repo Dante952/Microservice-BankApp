@@ -14,7 +14,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "tbl_creditType")
+@Table(name = "tbl_credittype")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

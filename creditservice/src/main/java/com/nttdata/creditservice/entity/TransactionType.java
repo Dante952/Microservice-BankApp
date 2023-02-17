@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "tbl_transactionType")
+@Table(name = "tbl_transactiontype")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

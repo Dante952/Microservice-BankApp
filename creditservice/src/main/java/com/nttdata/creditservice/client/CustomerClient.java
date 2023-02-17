@@ -3,14 +3,17 @@ package com.nttdata.creditservice.client;
 import com.nttdata.creditservice.model.Customer;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
 
+/**
+ * * interface requesting customer service.
+ *
+ */
 @FeignClient(name = "customerservice", path = "/customers")
 public interface CustomerClient {
-    @GetMapping(value = "/{document}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable("document") String document);
+  @GetMapping(value = "/{document}")
+  public ResponseEntity<Customer> getCustomer(@PathVariable("document") String document);
 
 }

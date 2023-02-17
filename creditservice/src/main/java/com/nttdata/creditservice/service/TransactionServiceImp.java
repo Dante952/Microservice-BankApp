@@ -3,47 +3,59 @@ package com.nttdata.creditservice.service;
 import com.nttdata.creditservice.entity.Credit;
 import com.nttdata.creditservice.entity.Transaction;
 import com.nttdata.creditservice.repository.TransactionRepository;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+/**
+ * implementation of the basic functions of a transaction.
+ *
+ */
 @Service
 @RequiredArgsConstructor
-public class TransactionServiceImp implements TransactionService{
+public class TransactionServiceImp implements TransactionService {
+  private final TransactionRepository transactionRepository;
 
-    private final TransactionRepository transactionRepository;
-    /**
-     * @param id
-     * @return
-     */
-    @Override
-    public Transaction getTransaction(Long id) {
-        return transactionRepository.findById(id).orElse(null);
-    }
+  /**
+   * * Get a transaction for your id.
+   *
+   * @param id unique identifier of a transaction
+   * @return Transaction
+   */
+  @Override
+  public Transaction getTransaction(Long id) {
+    return transactionRepository.findById(id).orElse(null);
+  }
 
-    /**
-     * @return
-     */
-    @Override
-    public List<Transaction> listAllTransaction() {
-        return transactionRepository.findAll();
-    }
+  /**
+   * * List of all transactions.
+   *
+   * @return TransactionList
+   */
+  @Override
+  public List<Transaction> listAllTransaction() {
+    return transactionRepository.findAll();
+  }
 
-    /**
-     * @return
-     */
-    @Override
-    public List<Transaction> findByCredit(Credit credit) {
-        return transactionRepository.findByCredit(credit);
-    }
+  /**
+   * * Get a transaction for your credit.
+   *
+   * @param credit unique identifier of a transaction
+   * @return TransactionList
+   */
+  @Override
+  public List<Transaction> findByCredit(Credit credit) {
+    return transactionRepository.findByCredit(credit);
+  }
 
-    /**
-     * @param transaction
-     * @return
-     */
-    @Override
-    public Transaction createTrasaction(Transaction transaction) {
-        return transactionRepository.save(transaction);
-    }
+  /**
+   * * Get a transaction for your id.
+   *
+   * @param transaction transaction object with all its attributes
+   * @return Transaction
+   */
+  @Override
+  public Transaction createTrasaction(Transaction transaction) {
+    return transactionRepository.save(transaction);
+  }
 }

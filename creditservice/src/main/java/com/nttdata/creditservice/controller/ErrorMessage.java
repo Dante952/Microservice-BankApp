@@ -1,12 +1,12 @@
 package com.nttdata.creditservice.controller;
 
+
+import java.util.List;
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * * Class that defines the format of REST errors.

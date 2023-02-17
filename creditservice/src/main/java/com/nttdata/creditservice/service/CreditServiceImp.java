@@ -3,21 +3,26 @@ package com.nttdata.creditservice.service;
 import com.nttdata.creditservice.entity.Credit;
 import com.nttdata.creditservice.entity.CreditType;
 import com.nttdata.creditservice.repository.CreditRepository;
+import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+/**
+ * * Implementation where the basic functions are declared (CRUD).
+ *
+ */
 
 @Service
 @RequiredArgsConstructor
 public class CreditServiceImp implements CreditService {
-
-
   private final CreditRepository creditRepository;
+
   /**
-   * @param id
-   * @return
+   * * obtains a credit searching for it by its id.
+   *
+   * @param id unique credit identifier
+   * @return Credit
    */
   @Override
   public Credit getCredit(Long id) {
@@ -25,8 +30,10 @@ public class CreditServiceImp implements CreditService {
   }
 
   /**
-   * @param credit
-   * @return
+   * * create new credit.
+   *
+   * @param credit credit object
+   * @return Credit
    */
   @Override
   public Credit createCredit(Credit credit) {
@@ -34,8 +41,10 @@ public class CreditServiceImp implements CreditService {
   }
 
   /**
-   * @param credit
-   * @return
+   * * update an existing credit.
+   *
+   * @param credit credit object
+   * @return Credit
    */
   @Override
   public Credit updateCredit(Credit credit) {
@@ -50,8 +59,10 @@ public class CreditServiceImp implements CreditService {
   }
 
   /**
-   * @param id
-   * @return
+   * * delete an existing credit.
+   *
+   * @param id unique credit identifier
+   * @return Credit
    */
   @Override
   public Credit deleteCredit(Long id) {
@@ -64,7 +75,9 @@ public class CreditServiceImp implements CreditService {
   }
 
   /**
-   * @return
+   * * lists all existing credits.
+   *
+   * @return ListCredits
    */
   @Override
   public List<Credit> listAllCredit() {
@@ -72,8 +85,9 @@ public class CreditServiceImp implements CreditService {
   }
 
   /**
-   * @param customerType
-   * @return
+   * * finds all credits that match the type of credit sent.
+   *
+   * @return ListCredits
    */
   @Override
   public List<Credit> findByCreditType(CreditType creditType) {

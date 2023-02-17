@@ -9,16 +9,16 @@ server:
 # http://localhost:8091/h2-console
 # Enabling H2 Console
 spring:
+  h2:
+    console:
+      enabled: true
+  # ===============================
+  # DB
+  # ===============================
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/accountDB
-    username: root
-    password: root
+    url: jdbc:h2:mem:account;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
 
-    jpa:
-      hibernate.ddl-auto: update
-      generate-ddl: true
-      show-sql: true
 
   # ===============================
   # JPA / HIBERNATE
@@ -27,7 +27,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.H2Dialect
     properties:
       hibernate:
         show_sql: true
@@ -43,3 +43,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

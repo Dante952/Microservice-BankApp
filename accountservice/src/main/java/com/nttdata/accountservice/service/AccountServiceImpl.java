@@ -18,10 +18,8 @@ import org.springframework.stereotype.Service;
 public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountRepository accountRepository;
-
     @Autowired
     MovementRepository movementRepository;
-
     @Autowired
     AuthorizedRepository authorizedRepository;
 
@@ -30,8 +28,6 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<AccountEntity> getListAccountOfCustomer(Long id) {
         List<AccountEntity> accountEntity = accountRepository.findAll();
-
-
         List<AccountEntity> accountCustomer = accountEntity.stream()
                 .filter(accountEntity1 -> Objects.equals(accountEntity1.getCustomer().getId(), id))
                 .collect(Collectors.toList());
@@ -72,10 +68,8 @@ public class AccountServiceImpl implements AccountService {
             }
             actual = actual - movementEntity.getAmount();
         }
-
         account.setAmount(actual);
         accountRepository.save(account);
-
         return movementRepository.save(movementEntity);
     }
 
@@ -83,9 +77,6 @@ public class AccountServiceImpl implements AccountService {
     public AccountEntity createAccount(AccountEntity accountEntity, Customer customer) {
 
         Long tipo = accountEntity.getIdTypeAccount().getId();
-        //CustomerEntity customerEntity = new CustomerEntity() ;
-        //customerEntity.setId(accountEntity.getIdCustomer().getId());
-
         if (tipo == 100) {
             return createAccountSaving(accountEntity,customer);
         } else if (tipo == 200) {

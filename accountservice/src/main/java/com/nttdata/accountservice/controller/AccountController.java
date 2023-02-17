@@ -13,9 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 /**
- * Some javadoc.
+ **Generates the mapping of the REST APIs for the Account service and Movement service about Accounts.
  *
  */
 @RestController
@@ -23,13 +22,7 @@ import org.springframework.web.bind.annotation.*;
 public class AccountController {
     @Autowired
     AccountService accountServiceController;
-    @Autowired
-    CustomerClient customerClient;
 
-    /**
-     * Some javadoc.
-     *
-     */
     @GetMapping(value = "/list")
     public ResponseEntity<List<AccountEntity>> list() {
         List<AccountEntity> accountEntities = accountServiceController.list();
@@ -39,11 +32,7 @@ public class AccountController {
         return ResponseEntity.ok(accountEntities);
     }
 
-    /**
-     * Some javadoc.
-     *
-     */
-    @GetMapping(value = "/list/account/{id}")//id costumer
+    @GetMapping(value = "/list/account/{id}")
     public ResponseEntity<List<AccountEntity>> getListAccountOfCustomer(@PathVariable("id") Long id) {
         List<AccountEntity> accountEntity = accountServiceController.findCustomerId(Customer.builder().id(id).build());
         if (null == accountEntity) {
@@ -56,10 +45,6 @@ public class AccountController {
         return ResponseEntity.ok(accountEntities);
     }
 
-    /**
-     * Some javadoc.
-     *
-     */
     @GetMapping(value = "/list/movement/{id}")//id account
     public ResponseEntity<List<MovementEntity>> getListMovementAccountOfCustomer(@PathVariable("id") Long id) {
 
@@ -74,10 +59,6 @@ public class AccountController {
         return ResponseEntity.ok(movementEntities);
     }
 
-    /**
-     * Some javadoc.
-     *
-     */
     @PostMapping(value = "/movement")
     public ResponseEntity<MovementEntity> setDepositCustomer(@RequestBody MovementEntity movementEntity){
         AccountEntity accountEntity = accountServiceController.findAccountId(movementEntity.getIdAccount().getId());
@@ -88,10 +69,8 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.CREATED).body(movement);
     }
 
-    /**
-     * Some javadoc.
-     *
-     */
+    @Autowired
+    CustomerClient customerClient;
     @PostMapping(value = "/create")
     public ResponseEntity<AccountEntity> save(@RequestBody AccountEntity accountEntity){
 
@@ -105,10 +84,6 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.CREATED).body(account);
     }
 
-    /**
-     * Some javadoc.
-     *
-     */
     @PostMapping(value = "/create/authorized")
     public ResponseEntity<AuthorizedEntity> save(@RequestBody AuthorizedEntity authorizedEntity){
         AuthorizedEntity authorized = accountServiceController.createAuthorized(authorizedEntity);

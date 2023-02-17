@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Some javadoc.
+ * *Type of Authorized about account
  *
  */
 @Entity

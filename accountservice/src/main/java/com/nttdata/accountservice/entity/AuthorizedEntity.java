@@ -15,7 +15,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Some javadoc.
+ * *Authorized people about an account
  *
  */
 @Entity

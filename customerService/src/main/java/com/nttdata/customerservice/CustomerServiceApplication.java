@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
- * Microservice in charge of managing bank clients, such as business and personal.
+ * Collection of microservice logs
  *
+ * @author Patricio Dante Torres Martínez
  */
 
 @SpringBootApplication

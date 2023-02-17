@@ -6,17 +6,17 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * Microservice that manages the credits that are requested as business credit, personal credit and credit card
+ * Microservice in charge of managing and managing credit products
  *
+ * @author Patricio Dante Torres Martínez
  */
 
 @EnableEurekaClient
 @SpringBootApplication
 @EnableFeignClients
 public class CreditserviceApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(CreditserviceApplication.class, args);
-	}
+  public static void main(String[] args){
+    SpringApplication.run(CreditserviceApplication.class, args);
+  }
 
 }

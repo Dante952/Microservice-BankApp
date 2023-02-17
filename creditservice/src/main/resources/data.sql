@@ -44,10 +44,9 @@ CREATE TABLE IF NOT EXISTS tbl_transaction (
                                                    id LONG NOT NULL,
                                                    credit_id LONG NOT NULL,
                                                    transactiontype_id LONG NOT NULL,
-                                                   status VARCHAR2,
                                                    amount VARCHAR2,
                                                    PRIMARY KEY (id)
 
 );
 
-delete FROM tbl_transactiontype WHERE id >= '1';
+delete FROM tbl_transaction WHERE id >= '1';

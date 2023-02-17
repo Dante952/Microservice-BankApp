@@ -1,6 +1,9 @@
 package com.nttdata.creditservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +24,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="index")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,15 +32,15 @@ public class Transaction {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "credit_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private CreditType credit;
+    private Credit credit;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "transactiontype_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private TransactionType transactionType;
-    @NotEmpty(message = "the status must not be empty")
-    private String status;
     @NotEmpty(message = "the amount must not be empty")
-    private String aumont;
+    private String amount;
+
+
 
 
 }

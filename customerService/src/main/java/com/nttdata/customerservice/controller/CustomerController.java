@@ -119,13 +119,12 @@ public class CustomerController {
   @GetMapping(value = "/{document}")
   public ResponseEntity<Customer> getCustomer(@PathVariable("document") String document) {
     Customer customer =  customerService.findByDocument(document);
+
     if (Optional.ofNullable(customer).isEmpty()) {
       return ResponseEntity.notFound().build();
     }
     return ResponseEntity.ok(customer);
   }
-
-
 
   /**
    * * Ignore try block, but keep catch and finally blocks.

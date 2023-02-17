@@ -1,7 +1,6 @@
 package com.nttdata.accountservice;
 
 import com.nttdata.accountservice.entity.AccountEntity;
-import com.nttdata.accountservice.entity.CustomerEntity;
 import com.nttdata.accountservice.entity.MovementEntity;
 import com.nttdata.accountservice.repository.AccountRepository;
 import com.nttdata.accountservice.service.AccountService;
@@ -12,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SpringBootTest

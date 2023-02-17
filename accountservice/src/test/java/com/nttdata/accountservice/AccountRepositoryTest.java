@@ -1,7 +1,6 @@
 package com.nttdata.accountservice;
 
 import com.nttdata.accountservice.entity.AccountEntity;
-import com.nttdata.accountservice.entity.CustomerEntity;
 import com.nttdata.accountservice.entity.TypeAccountEntity;
 import com.nttdata.accountservice.repository.AccountRepository;
 import org.assertj.core.api.Assertions;

@@ -1,10 +1,12 @@
 package com.nttdata.accountservice.controller;
 
 import java.util.List;
+
+import com.nttdata.accountservice.client.CustomerClient;
 import com.nttdata.accountservice.entity.AccountEntity;
 import com.nttdata.accountservice.entity.AuthorizedEntity;
-import com.nttdata.accountservice.entity.CustomerEntity;
 import com.nttdata.accountservice.entity.MovementEntity;
+import com.nttdata.accountservice.model.Customer;
 import com.nttdata.accountservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +23,8 @@ import org.springframework.web.bind.annotation.*;
 public class AccountController {
     @Autowired
     AccountService accountServiceController;
+    @Autowired
+    CustomerClient customerClient;
 
     /**
      * Some javadoc.
@@ -41,7 +45,7 @@ public class AccountController {
      */
     @GetMapping(value = "/list/account/{id}")//id costumer
     public ResponseEntity<List<AccountEntity>> getListAccountOfCustomer(@PathVariable("id") Long id) {
-        List<AccountEntity> accountEntity = accountServiceController.findCustomerId(CustomerEntity.builder().id(id).build());
+        List<AccountEntity> accountEntity = accountServiceController.findCustomerId(Customer.builder().id(id).build());
         if (null == accountEntity) {
             return ResponseEntity.notFound().build();
         }
@@ -90,12 +94,15 @@ public class AccountController {
      */
     @PostMapping(value = "/create")
     public ResponseEntity<AccountEntity> save(@RequestBody AccountEntity accountEntity){
-        AccountEntity account = accountServiceController.createAccount(accountEntity);
+
+        Customer customer = customerClient.getCustomer(accountEntity.getCustomer().getDocument()).getBody();
+        accountEntity.setIdCustomer(customer.getId());
+        AccountEntity account = accountServiceController.createAccount(accountEntity,customer);
         if (account == null) {
             return ResponseEntity.badRequest().build();
         }
+        account.setCustomer(customer);
         return ResponseEntity.status(HttpStatus.CREATED).body(account);
-
     }
 
     /**

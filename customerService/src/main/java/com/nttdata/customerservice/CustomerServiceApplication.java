@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
- * Collection of microservice logs
+ * Customer microservice has its own database and allows the management of this.
  *
  * @author Patricio Dante Torres Martínez
  */

@@ -76,7 +76,7 @@ public class CustomerController {
    * * Returns a complete or filtered list of registered customers by their id.
    *
    * @param customerTypeId unique customer identifier
-   * @return CustomerList found customer list
+   * @return CustomerList
    */
   @GetMapping
   public ResponseEntity<List<Customer>> listCustomer(
@@ -97,7 +97,7 @@ public class CustomerController {
    * * Create a new customer validating each of its attributes.
    *
    * @param customer Customer received in the request
-   * @return ResponseEntity Customer created in the system
+   * @return ResponseEntity
    */
   @PostMapping
   public ResponseEntity<Customer> createCustomer(
@@ -111,10 +111,10 @@ public class CustomerController {
   }
 
   /**
-   * * Ignore try block, but keep catch and finally blocks.
+   * * gets a Customer looking for their identity document.
    *
-   * @param document asdasd
-   * @return CustomerList asdasdsa
+   * @param document identity document of a person or company
+   * @return Customer
    */
   @GetMapping(value = "/{document}")
   public ResponseEntity<Customer> getCustomer(@PathVariable("document") String document) {
@@ -127,11 +127,11 @@ public class CustomerController {
   }
 
   /**
-   * * Ignore try block, but keep catch and finally blocks.
+   * * modifies an existing Customer.
    *
-   * @param id asdasd
-   * @param customer asdasd
-   * @return CustomerList asdasdsa
+   * @param id unique identifier of a Customer
+   * @param customer customer object with all its attributes
+   * @return Customer
    */
   @PutMapping(value = "/{id}")
   public ResponseEntity<Customer> updateCustomer(
@@ -149,10 +149,10 @@ public class CustomerController {
   }
 
   /**
-   * * Ignore try block, but keep catch and finally blocks.
+   * * delete an existing Customer.
    *
-   * @param id asdasd
-   * @return CustomerList asdasdsa
+   * @param id unique identifier of a Customer
+   * @return CustomerList
    */
   @DeleteMapping(value = "/{id}")
   public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") Long id) {

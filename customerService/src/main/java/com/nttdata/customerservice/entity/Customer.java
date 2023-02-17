@@ -18,7 +18,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Some javadoc.
+ * Entity of the Customer object that defines all its attributes.
  *
  */
 @Entity

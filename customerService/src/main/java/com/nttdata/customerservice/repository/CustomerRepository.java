@@ -8,31 +8,24 @@ import org.springframework.stereotype.Repository;
 
 
 /**
- * Some javadoc.
+ * Customer repository with its search functions.
  *
  */
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
   /**
-   * * Ignore try block, but keep catch and finally blocks.
+   * * search for a Customer by its type.
    *
-   * @param customerType asdas
+   * @param customerType Type of client can be business or personal.
    * @return CustomerList
    */
   public List<Customer> findByCustomerType(CustomerType customerType);
 
   /**
-   * * Ignore try block, but keep catch and finally blocks.
+   * * Search for a Customer by their identity document.
    *
-   * @param document asd
-   * @return Customer sadas
+   * @param document Unique identity document can be passport dni or ruc
+   * @return Customer
    */
   public Customer findByDocument(String document);
-
-
-
-
-
-
-
 }

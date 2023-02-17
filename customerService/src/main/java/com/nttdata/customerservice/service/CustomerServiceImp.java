@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 /**
- * .
+ * Implementation of a Customer contains its basic CRUD functions.
  *
  */
 
@@ -21,10 +21,10 @@ public class CustomerServiceImp implements CustomerService {
   private final CustomerRepository customerRepository;
 
   /**
-   * Ignore try block, but keep catch and finally blocks.
+   * look for a Customer by their Id.
    *
-   * @param id String to parse
-   * @return A positive integer
+   * @param id unique customer identifier
+   * @return Customer
    */
   @Override
   public Customer getCustomer(Long id) {
@@ -33,10 +33,10 @@ public class CustomerServiceImp implements CustomerService {
   }
 
   /**
-   * Ignore try block, but keep catch and finally blocks.
+   * Create a new Customer.
    *
-   * @param customer String to parse
-   * @return A positive integer
+   * @param customer customer object with all its attributes
+   * @return Customer
    */
   @Override
   public Customer createCustomer(Customer customer) {
@@ -45,10 +45,10 @@ public class CustomerServiceImp implements CustomerService {
   }
 
   /**
-   * Ignore try block, but keep catch and finally blocks.
+   * Update an existing Customer.
    *
-   * @param customer String to parse
-   * @return A positive integer
+   * @param customer customer object with all its attributes
+   * @return Customer
    */
   @Override
   public Customer updateCustomer(Customer customer) {
@@ -67,9 +67,10 @@ public class CustomerServiceImp implements CustomerService {
   }
 
   /**
-   * Ignore try block, but keep catch and finally blocks.
+   * Delete an existing Customer.
    *
-   * @param id String to parse
+   * @param id unique customer identifier
+   * @return Customer
    */
   @Override
   public Customer deleteCustomer(long id) {
@@ -83,9 +84,9 @@ public class CustomerServiceImp implements CustomerService {
   }
 
   /**
-   * Ignore try block, but keep catch and finally blocks.
+   * Gets all Customers.
    *
-   * @return A positive integer
+   * @return ListCustomer
    */
   @Override
   public List<Customer> listAllCustomer() {
@@ -94,10 +95,10 @@ public class CustomerServiceImp implements CustomerService {
   }
 
   /**
-   * Ignore try block, but keep catch and finally blocks.
+   * Search for a customer by their customer type.
    *
-   * @param customerType String to parse
-   * @return A positive integer
+   * @param customerType type of client with which the banking system works
+   * @return ListCustomer
    */
   @Override
   public List<Customer> findByCustomerType(CustomerType customerType) {
@@ -105,10 +106,10 @@ public class CustomerServiceImp implements CustomerService {
   }
 
   /**
-   * * Ignore try block, but keep catch and finally blocks.
+   * Search for a customer by their identity document.
    *
-   * @param document asdas
-   * @return Customer sadasd
+   * @param document Identity document of a Customer
+   * @return ListCustomer
    */
   @Override
   public Customer findByDocument(String document) {
